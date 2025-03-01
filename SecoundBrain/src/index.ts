@@ -39,23 +39,6 @@ const Authenticate = z.object({
 
 })
 
-async function Connect(){
-
-    try{
-
-       await mongoose.connect('mongodb+srv://admin:admin123@cluster0.8x83e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
-
-
-    }
-    catch(e){
-        console.log(e)
-    }
-
-
-}
-
-
-Connect();
 
 
 
