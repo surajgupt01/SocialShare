@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router"; // Correct import for useParams
 import axios from "axios";
-import Nav from "./Nav";
+import {Nav} from "./Nav";
 import MainContainer from "./MainComp";
 import Card from "./Card";
 
@@ -24,7 +24,7 @@ export default function Sharings() {
 
   return (
     <div className="flex h-screen">
-      <Nav />
+      {/* <Nav /> */}
       <MainContainer>
         <div className="grid grid-cols-3 gap-5 p-10 ml-90">
           {data?.content?.length > 0 ? (

@@ -1,5 +1,5 @@
 import AddContent from "./AddContent";
-import Nav from "./Nav"
+import {Nav} from "./Nav"
 import Card from "./Card";
 import { useState } from "react";
 import MainContainer from "./MainComp";
@@ -9,8 +9,12 @@ import axios from "axios";
 import ShareContent from "./ShareContent";
 
 
+function samecontent(a: string , b: string){
 
+  if(a==b) return true;
+  else return false
 
+}
 
 
 export default function DashBoard() {
@@ -18,6 +22,11 @@ export default function DashBoard() {
   const [open , setOpen] = useState(false);
   const [shareOpen , setShareOpen] = useState(false)
   const [res , setRes] = useState('');
+  const [contentType , setContentType] = useState('links');
+
+  // console.log(contentType.toLowerCase()) 
+
+
 
      
   async function shareContent() {
@@ -66,7 +75,7 @@ export default function DashBoard() {
     <div className="flex h-screen ">
 
     
-     <Nav/>
+     <Nav setContentType = {setContentType}/>
       
   
      <MainContainer>
@@ -77,26 +86,28 @@ export default function DashBoard() {
      <ButtonComp addContent={addContent} shareContent={shareContent} setRes={setRes}></ButtonComp>
        
 
+{data &&
 
- {
-    data && contents.map((e : any )=>(
+  (contentType.toLowerCase() != "links" 
+    ? contents
+    .filter((e: any) => e.type && e.type.toLowerCase() === contentType.toLowerCase())
+    .map((e: any) => (
+      <Card key={e.link} link={e.link} type={e.type} title={e.title} tags={e.tags} />
+    )) 
+    
+    :
+    contents.map((e: any) => (
+        <Card key={e.link} link={e.link} type={e.type} title={e.title} tags={e.tags} />
+      ))
 
-     <Card link={e.link} type={e.type} title={e.title} tags={e.tags}></Card>
-
-    ))
- }
-
+  )
+    
+}
 
      </div>
-
-      
+   
      </MainContainer>
-     
 
-
-       
-
-     
     </div>
 
     </>

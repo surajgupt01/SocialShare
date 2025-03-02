@@ -14,7 +14,7 @@ interface ShareContentPorps{
 
 export default function ShareContent({setRes, Res ,state , setState} : ShareContentPorps){
 
-console.log(Res)
+
 
 
     return(
