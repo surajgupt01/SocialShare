@@ -62,7 +62,7 @@ try{
             
             <div className="flex items-center justify-center h-150">
             <form action={SendData.mutate}>
-            <div className="border-1 border-gray-300 h-100 w-100 rounded-lg shadow-md">
+            <div className="border-1 border-gray-300 h-105 w-100 rounded-lg shadow-md">
 
                <div className="font-semibold text-2xl w-full p-2 flex justify-center">Sign Up</div>
                <div className=" text-md-full p-2 flex justify-center">Unlock Knowledge. Save, Share and Inspire!</div>
@@ -76,6 +76,7 @@ try{
                     <input name="password" type="password" className="w-70 h-10 rounded-md border-1 border-gray-300 p-5 mb-5" placeholder="set password"></input>
                     <button type="submit" className="w-70 h-10 border-1 border-blue-500 bg-blue-500 hover:bg-blue-600 rounded-lg text-white cursor-pointer ">Submit</button>
                   </div>
+                  <p className="text-center mt-2 mb-2 p-2">Already have an account <Link to={'/signIn'}> <span className="cursor-pointer text-blue-400 hover:text-blue-600">SignIn</span> </Link></p>
                  </div>
 
                  <div>
