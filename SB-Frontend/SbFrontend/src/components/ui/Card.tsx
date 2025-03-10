@@ -6,7 +6,7 @@ interface CardProps{
 }
 import Share from "./Share"
 import Bin from "./Bin"
-export default function Card({type, link, title , tags } : CardProps){
+export default function Card({type, link, title } : CardProps){
     return(
       
       <div className="w-85 h-110 border-1 rounded-md border-gray-300 p-4 shadow-md overflow-y-auto no-scrollbar">

@@ -36,7 +36,7 @@ async function addData(formData:FormData){
 
 }
 const addContent = useMutation({
-  mutationFn: addData , onSuccess : (data)=>{
+  mutationFn: addData , onSuccess : ()=>{
     navigate('/dashboard')
   
 

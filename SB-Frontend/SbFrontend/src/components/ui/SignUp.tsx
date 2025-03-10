@@ -1,6 +1,5 @@
 import Logo from "./Logo"
 import { Link, useNavigate } from "react-router"
-import {useQuery} from "@tanstack/react-query"
 import axios from "axios"
 import { useMutation } from "@tanstack/react-query"
 
@@ -44,7 +43,7 @@ try{
 
   }
 
-  const SendData  = useMutation({mutationFn:getData , onSuccess : (data)=>{ 
+  const SendData  = useMutation({mutationFn:getData , onSuccess : ()=>{ 
 
     navigate('/signIn') 
   } } )
