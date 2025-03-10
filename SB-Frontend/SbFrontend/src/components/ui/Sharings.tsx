@@ -19,7 +19,7 @@ export default function Sharings() {
     enabled: !!sharelink, 
   });
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <p>Loading please wait...</p>;
   if (error) return <p>Error fetching data.</p>;
 
   return (
