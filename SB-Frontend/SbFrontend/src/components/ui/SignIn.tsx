@@ -65,6 +65,8 @@ export default function SignIn(){
                     <button type="submit" className="w-70 h-10 border-1 border-blue-500 bg-blue-500 hover:bg-blue-600 rounded-lg text-white cursor-pointer ">Submit</button>
                     
                   </div>
+                  <p className="text-center mt-2 mb-2 p-2">Don't have a account <Link to={'/signUp'}> <span className="cursor-pointer text-blue-400 hover:text-blue-600">SignUp</span> </Link></p>
+
                  </div>
 
                  <div>
