@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router"; // Correct import for useParams
 import axios from "axios";
+
 import MainContainer from "./MainComp";
 import Card from "./Card";
 

@@ -9,12 +9,12 @@ import axios from "axios";
 import ShareContent from "./ShareContent";
 
 
-function samecontent(a: string , b: string){
+// function samecontent(a: string , b: string){
 
-  if(a==b) return true;
-  else return false
+//   if(a==b) return true;
+//   else return false
 
-}
+// }
 
 
 export default function DashBoard() {

@@ -12,7 +12,7 @@ interface ShareContentPorps{
 
 
 
-export default function ShareContent({setRes, Res ,state , setState} : ShareContentPorps){
+export default function ShareContent({Res ,state , setState} : ShareContentPorps){
 
 
 
