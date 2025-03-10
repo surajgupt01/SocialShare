@@ -2,6 +2,7 @@ import DashBoard from "./components/ui/Dashboard"
 import Sharings from "./components/ui/Sharings"
 import SignIn from "./components/ui/SignIn"
 import SignUp from "./components/ui/SignUp"
+import Home from "./components/ui/Home"
 import {BrowserRouter , Routes , Route} from "react-router"
 
 
@@ -15,7 +16,7 @@ function App(){
 
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<SignUp/>}></Route>
+      <Route path="/" element={<Home/>}></Route>
       <Route path="/signIn" element={<SignIn/>}></Route>
       <Route path="/signUp" element={<SignUp/>}></Route>
       <Route path="/dashboard" element={<DashBoard/>}></Route>
