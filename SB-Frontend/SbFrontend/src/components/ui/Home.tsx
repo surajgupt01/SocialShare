@@ -21,7 +21,7 @@ export default  function Home(){
         <div className="bg-slate-100 p-5 w-full h-full backdrop-blur-lg ">
           <div className="flex justify-between p-5 text-white ">
           <div className="flex font-bold md:text-3xl sm:text-2xl text-2xl p-2 text-blue-500 cursor-pointer hover:text-blue-600"><Link to={'/'}><Logo></Logo> Social Share </Link></div>
-          <button onClick={navigator} className="rounded-4xl md:p-3  sm:p-3 p-2 md:text-lg sm:text-md text-sm text-center cursor-pointer  bg-gray-800 text-white font-semibold md:w-40 sm:w-40 w-30 duration-500 ease-in-out hover:text-black hover:bg-white hover:border-1 h-14 mt-4">LogIn/SignUp</button>
+          <button onClick={navigator} className="rounded-4xl md:p-3  sm:p-3 p-2 md:text-md sm:text-md text-sm text-center cursor-pointer  bg-gray-800 text-white  font-semibold md:w-35 sm:w-35 w-28 duration-500 ease-in-out hover:text-black hover:bg-white hover:border-1 h-12 mt-4">LogIn/SignUp</button>
             
 
           </div>  
@@ -41,7 +41,7 @@ export default  function Home(){
          <div className=" flex flex-col justify-center items-center p-10 h-200   rounded-t-lg overflow-y-hidden md:w-4xl sm:w-xl w-xl  backdrop-blur-2xl shadow-2xl  ">
 
 <div className="font-bold sm:text-6xl text-5xl md:text-7xl  flex  justify-center  text-blue-500 w-full mt-80 ">
-   Social <span className="ml-7 text-blue-600">Share</span></div>
+   Social <span className="ml-2 md:ml-5 text-blue-600">Share</span></div>
    
    <p className="font-semibold text-md mt-8 text-center text-gray-600 sm:text-md text-sm md:text-lg">"Found something interesting?"
        <br></br>
