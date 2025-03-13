@@ -49,7 +49,7 @@ export default function SignIn(){
             
             <div className="flex items-center justify-center h-150">
             <form action={SignIN.mutate}>
-            <div className="border-1 border-gray-300 h-90 md:w-100 sm:w-100 w:70 rounded-lg shadow-md">
+            <div className="border-1 border-gray-300 h-90 md:w-100 sm:w-100 w:90 rounded-lg shadow-md">
            
                <div className="font-semibold text-2xl w-full p-2 flex justify-center">Sign In</div>
                <div className=" text-md-full p-2 flex justify-center">Unlock Knowledge. Save, Share and Inspire!</div>
