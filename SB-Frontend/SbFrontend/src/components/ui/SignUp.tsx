@@ -62,7 +62,7 @@ try{
             
             <div className="flex items-center justify-center h-150">
             <form action={SendData.mutate}>
-            <div className="border-1 border-gray-300 h-105 w-100 rounded-lg shadow-md">
+            <div className="border-1 border-gray-300 h-105 md:w-100 sm:w-100 w:70 rounded-lg shadow-md">
 
                <div className="font-semibold text-2xl w-full p-2 flex justify-center">Sign Up</div>
                <div className=" text-md-full p-2 flex justify-center">Unlock Knowledge. Save, Share and Inspire!</div>
