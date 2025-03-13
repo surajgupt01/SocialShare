@@ -50,8 +50,10 @@ export default function ButtonComp({addContent , shareContent ,  setRes}:any){
     
     return(
           <div className="flex w-full items-start h-25 justify-between col-start-1 col-end-4">
-          <div className="text-4xl font-bold mt-10">All Notes</div>
-          <div className=" flex ">
+          <div className="text-4xl font-bold mt-10 ml-2">All Notes</div>
+          <div className=" hidden sm:flex  ">
+
+            
           <Button hover="hover:bg-blue-700" onClick={addContent} startIcon={<Plusicon/>} text = {styling.text} variant="primary" size={styling.size} bgcolor={styling.bgcolor} color={styling.color} rounded={styling.rounded} fontWeight="font-semibold" />
           <Button startIcon={<Share/>}onClick={SharingHandler} text = "Share Brain" variant="primary" size={styling.size} bgcolor="bg-purple-200" hover="hover:bg-purple-400" color="text-purple-900" rounded={styling.rounded} fontWeight="font-semibold"/>
   
