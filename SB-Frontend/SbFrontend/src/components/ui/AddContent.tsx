@@ -56,30 +56,30 @@ const addContent = useMutation({
 {state && (
   <div className="fixed inset-0 z-50 bg-slate-700 opacity-97 flex justify-center items-center">
     
-    <div className="w-[600px] h-auto bg-white border border-gray-300 rounded-2xl flex flex-col justify-center items-center shadow-md p-6 relative">
-     <form action={addContent.mutate}>
+    <div className="md:w-[600px] sm:w-[550px] w-[400px] h-auto bg-white border border-gray-300 rounded-2xl flex flex-col justify-center items-center shadow-md p-6 relative">
+     <form action={addContent.mutate} className=" w-full p-5 flex flex-col justify-center items-center">
       <div className="absolute top-4 right-4 cursor-pointer" onClick={() => setState(false)}>
         <CrossaIcon />
       </div>
 
-      <div className="font-semibold text-2xl mb-5">Content Details</div>
+      <div className="font-semibold md:text-2xl sm:text-xl text-lg mb-5">Content Details</div>
       <div className="flex gap-2">
         <input
           placeholder="Enter title"
-         name="title" className="w-[250px] h-12 p-2 rounded-lg border-gray-300 border mb-5"
+         name="title" className="md:w-[250px] sm:w-[200px] w-[150px] h-12 p-2 rounded-lg border-gray-300 border mb-5"
         />
         <input
           placeholder="Enter type of content"
-          name="type" className="w-[250px] h-12 p-2 rounded-lg border-gray-300 border mb-5"
+          name="type" className="md:w-[250px] sm:w-[200px] w-[150px] h-12 p-2 rounded-lg border-gray-300 border mb-5"
         />
       </div>
       <input
         placeholder="Enter tags ##"
-       name="tag" className="w-[500px] h-12 p-2 rounded-lg border-gray-300 border mb-5"
+       name="tag" className="md:w-[500px] sm:w-[550px] w-[310px] h-12 p-2 rounded-lg border-gray-300 border mb-5"
       />
       <input
         placeholder="Paste link or add details"
-        name="link" className="w-[500px] h-12 p-2 rounded-xl border-gray-300 border mb-5"
+        name="link" className="md:w-[500px] sm:w-[550px] w-[310px] h-12 p-2 rounded-xl border-gray-300 border mb-5"
       />
       <button
         type="submit" className="font-semibold w-[200px] h-12 p-2 bg-blue-400 text-white text-xl rounded-md hover:bg-blue-700 cursor-pointer"
