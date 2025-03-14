@@ -162,12 +162,12 @@ export default function DashBoard() {
   { sideButton && 
   <div className=" z-100 group ">
 
-      <div className= {`text-white flex justify-center items-center group/purple bg-purple-700 rounded-full w-12 h-12 absolute hover:bg-purple-600 bottom-[63px] right-[61px] cursor-pointer transition-all group-hover:-translate-y-34 ease-in-out duration-300 ${sideButtonActive ? '-translate-y-34' : 'translate-y-0'}`} onClick={SharingHandler}>
+      <div className= {`text-white flex justify-center items-center group/purple bg-purple-700 rounded-full w-12 h-12 absolute hover:bg-purple-600 bottom-[63px] right-[61px] cursor-pointer transition-all  ease-in-out duration-300 ${sideButtonActive ? '-translate-y-34' : 'translate-y-0'}`} onClick={SharingHandler}>
          <Share/>
 
       </div>
        
-       <div className={`text-white flex justify-center items-center group/blue bg-blue-700 rounded-full w-12 h-12 absolute hover:bg-blue-600 bottom-[63px] right-[61px] cursor-pointer transition-all group-hover:-translate-y-20 ease-in-out duration-300 ${sideButtonActive ? '-translate-y-20' : 'translate-y-0'}`} onClick={addContent}>
+       <div className={`text-white flex justify-center items-center group/blue bg-blue-700 rounded-full w-12 h-12 absolute hover:bg-blue-600 bottom-[63px] right-[61px] cursor-pointer transition-all  ease-in-out duration-300 ${sideButtonActive ? '-translate-y-20' : 'translate-y-0'}`} onClick={addContent}>
          <Plusicon/>
 
 
