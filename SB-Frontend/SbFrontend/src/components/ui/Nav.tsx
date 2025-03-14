@@ -11,7 +11,7 @@ import { useState } from "react"
 
 
 
-export  function Nav({menu  , setMenu ,setContentType , addContent , shareContent , setRes}:any){
+export  function Nav({menu  , setMenu ,setContentType}:any){
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
