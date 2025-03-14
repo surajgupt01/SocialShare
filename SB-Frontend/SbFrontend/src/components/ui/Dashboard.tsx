@@ -173,7 +173,7 @@ export default function DashBoard() {
 
        </div>
       
-      <div className={`bg-slate-700 rounded-full w-17 h-17 absolute hover:bg-slate-600 bottom-[60px] right-[50px] cursor-pointer transition-all hover:scale-120 flex justify-center items-center ${sideButtonActive ? 'scale-105' : 'scale-100'}`} onClick={()=>{
+      <div className={`bg-slate-700 rounded-full w-17 h-17 absolute hover:bg-slate-600 bottom-[60px] right-[50px] cursor-pointer transition-all hover:scale-120 flex justify-center items-center ${sideButtonActive ? 'scale-115' : 'scale-100'}`} onClick={()=>{
          console.log('active ::: ',sideButtonActive)
          SetsideButtonActive(!sideButtonActive)
          
