@@ -2,7 +2,7 @@ export default function MenuButton({menu , setMenu}:any){
     console.log(menu)
     return(
        
-        <> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="sm:hidden block size-10 border-1 rounded-md ml-5 mt-10" onClick={()=>setMenu(!menu)}>
+        <> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="sm:hidden block size-9 border-1 border-slate-300 text-blue-600 rounded-md ml-5 mt-20 shadow-xl" onClick={()=>setMenu(!menu)}>
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
         </svg> 
            
