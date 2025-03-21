@@ -39,12 +39,21 @@ function Connect() {
     });
 }
 Connect();
-const corsOptions = {
-    origin: 'http://localhost:5173', // Allow only requests from this origin
-    methods: 'GET,POST', // Allow only these methods
-    allowedHeaders: ['Content-Type', 'Authorization'] // Allow only these headers
-};
-app.use((0, cors_1.default)(corsOptions));
+const allowedDomains = ["http://localhost:5173", "https://social-share-one.vercel.app"];
+app.use((0, cors_1.default)({
+    origin: function (origin, callback) {
+        // Bypass requests with no origin (e.g., curl, Postman, mobile apps)
+        if (!origin)
+            return callback(null, true);
+        if (!allowedDomains.includes(origin)) {
+            return callback(new Error(`This site ${origin} is not allowed by CORS.`), false);
+        }
+        return callback(null, true);
+    },
+    credentials: true, // Allow cookies & authorization headers
+    methods: ["GET", "POST"], // Allowed methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+}));
 const Validation = zod_1.default.object({
     firstname: zod_1.default.string(),
     lastname: zod_1.default.string(),
