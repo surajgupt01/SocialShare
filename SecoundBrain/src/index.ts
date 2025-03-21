@@ -33,27 +33,15 @@ async function Connect(){
 
 Connect()
 
-const allowedDomains = ["http://localhost:5173", "https://social-share-one.vercel.app"];
-
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // Bypass requests with no origin (e.g., curl, Postman, mobile apps)
-      if (!origin) return callback(null, true);
-
-      if (!allowedDomains.includes(origin)) {
-        return callback(new Error(`This site ${origin} is not allowed by CORS.`), false);
-      }
-
-      return callback(null, true);
-    },
-    credentials: true, // Allow cookies & authorization headers
-    methods: ["GET", "POST"], // Allowed methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
-  })
-);
 
 
+const corsOptions = {
+    origin: 'https://https://social-share-one.vercel.app/',
+    methods: 'GET,POST', // Allow only these methods
+    allowedHeaders: ['Content-Type', 'Authorization'] // Allow only these headers
+};
+
+app.use(cors(corsOptions))
 
 const Validation = z.object({
     firstname : z.string(),
