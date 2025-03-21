@@ -36,7 +36,18 @@ Connect()
 
 
 const corsOptions = {
-    origin: ['http://localhost:5173','https://social-share-one.vercel.app'], // Allow only requests from this origin
+    origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
+        const allowedOrigins = [
+          "http://localhost:5173",
+          "https://social-share-one.vercel.app"
+        ];
+    
+        if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true); // Allow request
+        } else {
+          callback(new Error("Not allowed by CORS")); // Block request
+        }
+      },
     methods: 'GET,POST', // Allow only these methods
     allowedHeaders: ['Content-Type', 'Authorization'] // Allow only these headers
 };
