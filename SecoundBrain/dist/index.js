@@ -22,7 +22,23 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const utlis_1 = __importDefault(require("./utlis"));
 const cors_1 = __importDefault(require("cors"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 app.use(express_1.default.json());
+function Connect() {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            if (process.env.CONNECTION_URL) {
+                yield mongoose_1.default.connect(process.env.CONNECTION_URL);
+                console.log("database connected");
+            }
+        }
+        catch (e) {
+            console.log(e);
+        }
+    });
+}
+Connect();
 const corsOptions = {
     origin: 'http://localhost:5173', // Allow only requests from this origin
     methods: 'GET,POST', // Allow only these methods
@@ -41,17 +57,6 @@ const Authenticate = zod_1.default.object({
     email: zod_1.default.string().email(),
     password: zod_1.default.string()
 });
-function Connect() {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            yield mongoose_1.default.connect('mongodb+srv://admin:admin123@cluster0.8x83e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
-        }
-        catch (e) {
-            console.log(e);
-        }
-    });
-}
-Connect();
 app.post('/api/v1/signup', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let body = req.body;
     const { success, data, error } = Validation.safeParse(body);
