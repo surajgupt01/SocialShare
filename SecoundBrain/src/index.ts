@@ -10,10 +10,30 @@ import  bcrypt, { hash } from "bcrypt"
 import random from './utlis';
 import cors from "cors";
 import { json } from 'body-parser';
+import dotenv from 'dotenv'
 
-
+dotenv.config()
 
 app.use(express.json())
+
+async function Connect(){
+    try{
+       if(process.env.CONNECTION_URL){
+         await mongoose.connect(process.env.CONNECTION_URL)
+         console.log("database connected")
+
+       }
+    }
+    catch(e)
+    {
+        console.log(e)
+    }
+}
+
+
+Connect()
+
+
 
 const corsOptions = {
     origin: 'http://localhost:5173', // Allow only requests from this origin
@@ -38,6 +58,7 @@ const Authenticate = z.object({
     password : z.string()
 
 })
+
 
 
 
