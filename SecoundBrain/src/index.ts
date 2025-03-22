@@ -34,10 +34,6 @@ async function Connect(){
 Connect()
 
 
-if(!process.env.REQURL){
-    
-}
-
     const corsOptions = {
         origin:  process.env.REQURL,
         methods: 'GET,POST', 
