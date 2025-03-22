@@ -111,7 +111,7 @@ app.post('/api/v1/signup' , async(req , res)=>{
 
 })
 app.get('/demo' , (req,res)=>{
-    res.send({mssg:"demo working"})
+    res.json({mssg:"demo working"})
 })
 app.post('/api/v1/signIn' , async(req,res)=>{
 
