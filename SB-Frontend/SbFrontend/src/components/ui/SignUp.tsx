@@ -20,7 +20,7 @@ export default function SignUp(){
 
   async function getData(formData:FormData){
 
-    let response = await axios.post('https://social-share-s4o4-aeh4tlvd1-surajgupt01s-projects.vercel.app/api/v1/signup' , {
+    let response = await axios.post('https://social-share-dwj6.vercel.app/api/v1/signup' , {
       firstname : formData.get('Fname'),
       lastname : formData.get('Lname'),
       email : formData.get('email'),
