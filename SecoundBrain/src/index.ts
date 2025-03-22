@@ -34,12 +34,18 @@ async function Connect(){
 Connect()
 
 
+if(!process.env.REQURL){
+    
+}
 
-const corsOptions = {
-    origin: 'https://https://social-share-one.vercel.app/',
-    methods: 'GET,POST', // Allow only these methods
-    allowedHeaders: ['Content-Type', 'Authorization'] // Allow only these headers
-};
+    const corsOptions = {
+        origin:  process.env.REQURL,
+        methods: 'GET,POST', 
+        allowedHeaders: ['Content-Type', 'Authorization'] 
+    };
+
+
+
 
 app.use(cors(corsOptions))
 
@@ -104,7 +110,9 @@ app.post('/api/v1/signup' , async(req , res)=>{
 
 
 })
-
+app.get('/demo' , (req,res)=>{
+    res.send({mssg:"demo working"})
+})
 app.post('/api/v1/signIn' , async(req,res)=>{
 
 
