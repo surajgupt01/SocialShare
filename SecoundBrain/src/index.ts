@@ -15,6 +15,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 app.use(express.json())
+app.use(cors())
 
 async function Connect(){
     try{
