@@ -39,12 +39,21 @@ function Connect() {
     });
 }
 Connect();
-if (!process.env.REQURL) {
-}
 const corsOptions = {
-    origin: process.env.REQURL,
+    origin: (origin, callback) => {
+        if (!process.env.REQURL) {
+            console.error('REQURL environment variable is not defined.');
+            return callback(new Error('CORS: REQURL not configured'));
+        }
+        if (origin === process.env.REQURL) {
+            callback(null, true); // Allow the request
+        }
+        else {
+            callback(new Error('Not allowed by CORS')); // Block the request
+        }
+    },
     methods: 'GET,POST',
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
 };
 app.use((0, cors_1.default)(corsOptions));
 const Validation = zod_1.default.object({
