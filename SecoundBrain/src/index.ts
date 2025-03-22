@@ -33,17 +33,27 @@ async function Connect(){
 
 Connect()
 
+const corsOptions = {
+    origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
+      if (!process.env.REQURL) {
+        console.error('REQURL environment variable is not defined.');
+        return callback(new Error('CORS: REQURL not configured'));
+      }
+  
+      if (origin === process.env.REQURL) {
+        callback(null, true); 
+      } else {
+        callback(new Error('Not allowed by CORS')); 
+      }
+    },
+    methods: 'GET,POST',
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  };
+  
+  app.use(cors(corsOptions));
 
-    const corsOptions = {
-        origin:  process.env.REQURL,
-        methods: 'GET,POST', 
-        allowedHeaders: ['Content-Type', 'Authorization'] 
-    };
 
 
-
-
-app.use(cors(corsOptions))
 
 const Validation = z.object({
     firstname : z.string(),
