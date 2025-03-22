@@ -46,10 +46,10 @@ const corsOptions = {
             return callback(new Error('CORS: REQURL not configured'));
         }
         if (origin === process.env.REQURL) {
-            callback(null, true); // Allow the request
+            callback(null, true);
         }
         else {
-            callback(new Error('Not allowed by CORS')); // Block the request
+            callback(new Error('Not allowed by CORS'));
         }
     },
     methods: 'GET,POST',
