@@ -39,21 +39,14 @@ function Connect() {
     });
 }
 Connect();
-const allowedDomains = ["http://localhost:5173", "https://social-share-one.vercel.app"];
-app.use((0, cors_1.default)({
-    origin: function (origin, callback) {
-        // Bypass requests with no origin (e.g., curl, Postman, mobile apps)
-        if (!origin)
-            return callback(null, true);
-        if (!allowedDomains.includes(origin)) {
-            return callback(new Error(`This site ${origin} is not allowed by CORS.`), false);
-        }
-        return callback(null, true);
-    },
-    credentials: true, // Allow cookies & authorization headers
-    methods: ["GET", "POST"], // Allowed methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
-}));
+if (!process.env.REQURL) {
+}
+const corsOptions = {
+    origin: process.env.REQURL,
+    methods: 'GET,POST',
+    allowedHeaders: ['Content-Type', 'Authorization']
+};
+app.use((0, cors_1.default)(corsOptions));
 const Validation = zod_1.default.object({
     firstname: zod_1.default.string(),
     lastname: zod_1.default.string(),
@@ -91,6 +84,9 @@ app.post('/api/v1/signup', (req, res) => __awaiter(void 0, void 0, void 0, funct
         }
     }
 }));
+app.get('/demo', (req, res) => {
+    res.json({ mssg: "demo working" });
+});
 app.post('/api/v1/signIn', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     console.log(req.body);
     let email = req.body.email;
