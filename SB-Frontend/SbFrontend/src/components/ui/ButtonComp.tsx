@@ -10,7 +10,7 @@ export default function ButtonComp({addContent , shareContent ,  setRes}:any){
      
        async function ShareLink(){
      
-         const response = await axios.post('https://social-share-dwj6.vercel.app/api/v1/share',{share:"share"},{
+         const response = await axios.post('https://social-share-dwj6.vercel.app/api/v1/share',{
            headers:{
              'Authorization' : localStorage.getItem('token')
            }
