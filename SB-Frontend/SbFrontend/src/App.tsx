@@ -20,7 +20,7 @@ function App(){
       <Route path="/signIn" element={<SignIn/>}></Route>
       <Route path="/signUp" element={<SignUp/>}></Route>
       <Route path="/dashboard" element={<DashBoard/>}></Route>
-      <Route path="/SocialShare/:sharelink" element={<Sharings/>}></Route>
+      <Route path="/:sharelink" element={<Sharings/>}></Route>
     </Routes>
     </BrowserRouter>
    
