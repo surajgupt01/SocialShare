@@ -35,7 +35,7 @@ export default function DashBoard() {
 
   async function ShareLink(){
      
-    const response = await axios.post('http://localhost:3000/api/v1/share',{share:"share"},{
+    const response = await axios.post('https://social-share-dwj6.vercel.app/api/v1/share',{share:"share"},{
       headers:{
         'Authorization' : localStorage.getItem('token')
       }
