@@ -267,7 +267,7 @@ app.post('/api/v1/share' , async(req,res)=>{
 
          }
 
-         res.json({link : `http://localhost:5173/SocialShare/${link.hash}`})
+         res.json({link : `https://social-share-one.vercel.app/${link.hash}`})
     
         }
    
