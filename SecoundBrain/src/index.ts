@@ -263,7 +263,7 @@ app.post('/api/v1/share' , async(req,res)=>{
        }
         else{
 
-        link = user
+         link = user
 
          }
 

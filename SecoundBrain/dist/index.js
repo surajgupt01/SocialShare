@@ -25,6 +25,7 @@ const cors_1 = __importDefault(require("cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 app.use(express_1.default.json());
+app.use((0, cors_1.default)());
 function Connect() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -178,7 +179,7 @@ app.post('/api/v1/share', (req, res) => __awaiter(void 0, void 0, void 0, functi
             else {
                 link = user;
             }
-            res.json({ link: `http://localhost:5173/SocialShare/${link.hash}` });
+            res.json({ link: `https://social-share-one.vercel.app/${link.hash}` });
         }
     }
     catch (e) {
