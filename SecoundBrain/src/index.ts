@@ -35,7 +35,10 @@ async function Connect(){
 Connect()
 
 const corsOptions = {
+
     origin : process.env.REQURL,
+
+
     methods: 'GET,POST',
     allowedHeaders: ['Content-Type', 'Authorization'],
   };
