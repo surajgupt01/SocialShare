@@ -35,7 +35,7 @@ export default function DashBoard() {
 
   async function ShareLink(){
      
-    const response = await axios.post('https://social-share-dwj6.vercel.app/api/v1/share',{share:"share"},{
+    const response = await axios.post('https://social-share-dwj6.vercel.app/api/v1/share',{
       headers:{
         'Authorization' : localStorage.getItem('token')
       }
@@ -46,6 +46,7 @@ export default function DashBoard() {
 
   const getLink = useMutation({
     mutationFn : ShareLink , onSuccess : (data)=>{
+      console.log(data.data.link)
        setRes(data.data.link)
      
     } 
