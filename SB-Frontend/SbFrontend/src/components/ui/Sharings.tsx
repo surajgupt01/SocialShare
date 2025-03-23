@@ -9,7 +9,7 @@ export default function Sharings() {
   const { sharelink } = useParams();
 
   async function seeSharings() {
-    const response = await axios.get(`http://localhost:3000/api/v1/${sharelink}`);
+    const response = await axios.get(`https://social-share-dwj6.vercel.app/api/v1/share/api/v1/${sharelink}`);
     return response.data; 
   }
 
