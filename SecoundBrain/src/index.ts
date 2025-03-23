@@ -16,6 +16,7 @@ dotenv.config()
 
 app.use(express.json())
 app.use(cors())
+
 async function Connect(){
     try{
        if(process.env.CONNECTION_URL){
@@ -34,7 +35,10 @@ async function Connect(){
 Connect()
 
 const corsOptions = {
-    origin: process.env.REQURL,
+
+    origin : process.env.REQURL,
+
+
     methods: 'GET,POST',
     allowedHeaders: ['Content-Type', 'Authorization'],
   };
