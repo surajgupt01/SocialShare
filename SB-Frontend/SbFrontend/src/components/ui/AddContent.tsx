@@ -14,7 +14,7 @@ const navigate = useNavigate()
 
 async function addData(formData:FormData){
 
-  const response = await axios.post('https://social-share-dwj6.vercel.app/api/v1/share/api/v1/content',{
+  const response = await axios.post('https://social-share-dwj6.vercel.app/api/v1/content',{
     link :  formData.get('link'),
     tags :  formData.get('tag'),
     title :  formData.get('title'),

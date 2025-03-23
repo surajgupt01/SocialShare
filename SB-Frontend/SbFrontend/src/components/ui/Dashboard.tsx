@@ -99,7 +99,7 @@ export default function DashBoard() {
   }
 
   async function getContents(){
-    const response = await axios.get("https://social-share-dwj6.vercel.app/api/v1/share/api/v1/content" ,
+    const response = await axios.get("https://social-share-dwj6.vercel.app/api/v1/content" ,
       {
         headers:{
           'Authorization' : localStorage.getItem("token")
