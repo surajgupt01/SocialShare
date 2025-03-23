@@ -13,14 +13,6 @@ import Plusicon from "./Plusicon";
 import { useMutation } from "@tanstack/react-query";
 
 
-// function samecontent(a: string , b: string){
-
-//   if(a==b) return true;
-//   else return false
-
-// }
-
-
 export default function DashBoard() {
 
   const [open , setOpen] = useState(false);
@@ -35,7 +27,7 @@ export default function DashBoard() {
 
   async function ShareLink(){
      
-    const response = await axios.post('https://social-share-dwj6.vercel.app/api/v1/share',{
+    const response = await axios.post('https://social-share-dwj6.vercel.app/api/v1/share',{},{
       headers:{
         'Authorization' : localStorage.getItem('token')
       }
@@ -51,6 +43,13 @@ export default function DashBoard() {
      
     } 
   })
+  
+     
+function shareContent() {
+   
+    setShareOpen(!shareOpen)
+  
+}
 
   function SharingHandler(){
    
@@ -81,17 +80,6 @@ export default function DashBoard() {
     else SetsideButton(false)
   }, [windowWidth]); // Runs whenever `windowWidth` changes
 
-
-
-
- 
-
-     
-  async function shareContent() {
-   
-    setShareOpen(!shareOpen)
-  
-}
 
   function addContent(){
     
@@ -143,7 +131,7 @@ export default function DashBoard() {
     }>
     
     <div className="grid grid-cols-3 gap-5">
-      <ButtonComp addContent={addContent} shareContent={shareContent} setRes={setRes} />
+      <ButtonComp addContent={addContent} SharingHandler={SharingHandler}/>
 
       {data &&
         (contentType.toLowerCase() !== "links"
