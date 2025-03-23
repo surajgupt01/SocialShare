@@ -21,6 +21,7 @@ export default function ButtonComp({addContent , shareContent ,  setRes}:any){
 
        const getLink = useMutation({
          mutationFn : ShareLink , onSuccess : (data)=>{
+            console.log(data.data.link)
             setRes(data.data.link)
           
          } 
