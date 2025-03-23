@@ -2,38 +2,12 @@ import { ButtonProps } from "./Button"
 import { Button } from "./Button"
 import Share from "./Share"
 import Plusicon from "./Plusicon"
-import { useMutation } from "@tanstack/react-query"
-import axios from "axios"
 
-export default function ButtonComp({addContent , shareContent ,  setRes}:any){
 
-     
-       async function ShareLink(){
-     
-         const response = await axios.post('https://social-share-dwj6.vercel.app/api/v1/share',{
-           headers:{
-             'Authorization' : localStorage.getItem('token')
-           }
-         })
-         return response
-     
-       }
-
-       const getLink = useMutation({
-         mutationFn : ShareLink , onSuccess : (data)=>{
-            console.log(data.data.link)
-            setRes(data.data.link)
-          
-         } 
-       })
- 
-       function SharingHandler(){
-        
-        getLink.mutate();
-        shareContent()
+export default function ButtonComp({addContent , SharingHandler}:any){
 
      
-       } 
+
 
 
     const styling : ButtonProps={
