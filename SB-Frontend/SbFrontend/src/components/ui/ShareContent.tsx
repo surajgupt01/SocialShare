@@ -1,7 +1,6 @@
 import CopyIcon from "./Copy"
 import CrossaIcon from "./CrossIcon"
-
-
+import { useEffect, useState } from "react"
 interface ShareContentPorps{
     state : boolean,
     setState : (state:boolean)=>void,
@@ -14,6 +13,11 @@ interface ShareContentPorps{
 
 export default function ShareContent({Res ,state , setState} : ShareContentPorps){
 
+    const [InputVal, setInput ]= useState(Res)
+    
+    useEffect(() => {
+        setInput(Res);
+      }, [Res]);
 
 
 
@@ -32,7 +36,7 @@ export default function ShareContent({Res ,state , setState} : ShareContentPorps
                     <CrossaIcon />
                 </div>
 
-                <input className="p-4 w-90 h-10 rounded-lg border-1 border-gray-500 bg-white" placeholder="link" value={Res} readOnly ></input>
+                <input className="p-4 w-90 h-10 rounded-lg border-1 border-gray-500 bg-white" placeholder="link" value={InputVal}  readOnly ></input>
                 <div onClick={async()=>{
                     
                     await window.navigator.clipboard.writeText(Res)
