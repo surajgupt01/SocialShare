@@ -3,6 +3,7 @@ import Logo from "./Logo"
 import{ Link, useNavigate }from "react-router"
 import axios from "axios"
 
+
 export default function SignIn(){
 
   const navigate  = useNavigate();
@@ -49,9 +50,9 @@ export default function SignIn(){
                 </Link>
             </div>
             
-            <div className="flex items-center justify-center h-150">
+            <div className="flex items-center justify-center h-120">
             <form action={SignIN.mutate}>
-            <div className="border-1 border-gray-800 text-white h-90 md:w-100 sm:w-100 w:90 rounded-lg shadow-lg shadow-gray-900">
+            <div className="border-1 border-gray-800 text-white h-90 md:w-95 sm:w-100 w:90 rounded-lg shadow-lg shadow-gray-900">
            
                <div className="font-semibold text-2xl w-full p-2 flex justify-center">Sign In</div>
                <div className=" text-md-full p-2 flex justify-center">Unlock Knowledge. Save, Share and Inspire!</div>
