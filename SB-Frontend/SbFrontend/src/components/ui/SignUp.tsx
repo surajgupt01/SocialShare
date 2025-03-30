@@ -20,7 +20,7 @@ export default function SignUp(){
 
   async function getData(formData:FormData){
 
-    let response = await axios.post('https://social-share-dwj6.vercel.app/api/v1/signup' , {
+    let response = await axios.post('http://localhost:8000/api/v1/signup' , {
       firstname : formData.get('Fname'),
       lastname : formData.get('Lname'),
       email : formData.get('email'),
@@ -50,7 +50,7 @@ try{
 
 
   return (
-    <div className="">
+    <div className="bg-neutral-900 absolute w-full h-full">
 
          <div className="font-bold text-3xl m-10  p-2 text-blue-500 cursor-pointer hover:text-blue-600   flex items-center">
                <Link to={'/'}>
@@ -62,7 +62,7 @@ try{
             
             <div className="flex items-center justify-center h-150">
             <form action={SendData.mutate}>
-            <div className="border-1 border-gray-300 h-105 md:w-100 sm:w-100 w-90 rounded-lg shadow-md">
+            <div className="border-1 border-gray-800 text-white h-105 md:w-100 sm:w-100 w-90 rounded-lg shadow-lg shadow-gray-900">
 
                <div className="font-semibold text-2xl w-full p-2 flex justify-center">Sign Up</div>
                <div className=" text-md-full p-2 flex justify-center">Unlock Knowledge. Save, Share and Inspire!</div>
