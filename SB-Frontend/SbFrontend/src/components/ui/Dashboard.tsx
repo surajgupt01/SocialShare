@@ -155,7 +155,7 @@ function shareContent() {
   </div>
 
   { sideButton && 
-  <div className=" z-100 group fixed ">
+  <div className=" z-100 group ">
 
       <div className= {`text-white flex justify-center items-center group/purple bg-purple-700 rounded-full w-12 h-12 absolute hover:bg-purple-600 bottom-[63px] right-[61px] cursor-pointer transition-all  ease-in-out duration-300 ${sideButtonActive ? '-translate-y-34' : 'translate-y-0'}`} onClick={SharingHandler}>
          <Share/>
