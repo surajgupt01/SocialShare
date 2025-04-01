@@ -64,7 +64,7 @@ export default function SignIn(){
                     </div> */}
                     
                     <input name="email" type="email" className="w-70 h-10 rounded-md border-1 border-gray-300 mb-5 p-5" placeholder="Email"></input>
-                    <input name="password" type="password" className="w-70 h-10 rounded-md border-1 border-gray-300 p-5 mb-5" placeholder="set password"></input>
+                    <input name="password" type="password" className="w-70 h-10 rounded-md border-1 border-gray-300 p-5 mb-5" placeholder="Password"></input>
                     <button type="submit" className="w-70 h-10 border-1 border-blue-500 bg-blue-500 hover:bg-blue-600 rounded-lg text-white cursor-pointer ">Submit</button>
                     
                   </div>
