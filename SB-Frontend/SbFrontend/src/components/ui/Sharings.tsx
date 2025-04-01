@@ -26,7 +26,7 @@ export default function Sharings() {
     <div className="flex h-screen">
       {/* <Nav /> */}
       <MainContainer>
-        <div className="grid grid-cols-3 gap-5 p-10 ml-90">
+        <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-5 gap-2">
           {data?.content?.length > 0 ? (
             data.content.map((e: any) => (
               <Card key={e.link} link={e.link} type={e.type} title={e.title} tags={e.tags} />
