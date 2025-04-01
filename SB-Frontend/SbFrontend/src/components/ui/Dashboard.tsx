@@ -114,24 +114,27 @@ function shareContent() {
 
   return (
 
-<>
+    <>
     <AddContent state={open} setState={setOpen}/>
     <ShareContent setRes={setRes} Res = {res} state={shareOpen} setState={shareContent}   ></ShareContent>
       
     <div className="flex h-screen bg-gray-100">
-    <MenuButton menu={menu} setMenu={setMenu}> </MenuButton>    
   {/* Sidebar / Navbar */}
   <Nav menu={menu} setMenu={setMenu} setContentType={setContentType} className="fixed md:relative w-64  text-white transition-transform duration-300 -translate-x-full md:translate-x-0" addContent={addContent} shareContent={shareContent} setRes={setRes} />
+   
 
+       
   {/* Main Content Section */}
-  <div className="flex-1 p-10 transition-all md:ml-80 "  onClick={()=>{
+  <div className="flex-1 md:p-10 p-2 transition-all ml-0 md:ml-80 bg-gray-200   w-full overflow-y-auto "  onClick={()=>{
     if(window.innerWidth < 600 && menu){
       setMenu(c=>!c)}
     }
     }>
     
-    <div className="grid grid-cols-3 gap-5">
-      <ButtonComp addContent={addContent} SharingHandler={SharingHandler}/>
+    <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-5 gap-2">
+    <MenuButton menu={menu} setMenu={setMenu}> </MenuButton>    
+
+    <ButtonComp addContent={addContent} SharingHandler={SharingHandler} />
 
       {data &&
         (contentType.toLowerCase() !== "links"
@@ -139,6 +142,9 @@ function shareContent() {
               .filter((e: any) => e.type?.toLowerCase() === contentType.toLowerCase())
               .map((e: any) => <Card key={e.link} {...e} />)
           : contents.map((e: any) => <Card key={e.link} {...e} />))}
+
+
+        
 
 
 
@@ -149,7 +155,7 @@ function shareContent() {
   </div>
 
   { sideButton && 
-  <div className=" z-100 group ">
+  <div className=" z-100 group fixed ">
 
       <div className= {`text-white flex justify-center items-center group/purple bg-purple-700 rounded-full w-12 h-12 absolute hover:bg-purple-600 bottom-[63px] right-[61px] cursor-pointer transition-all  ease-in-out duration-300 ${sideButtonActive ? '-translate-y-34' : 'translate-y-0'}`} onClick={SharingHandler}>
          <Share/>
@@ -176,5 +182,8 @@ function shareContent() {
 
 
     </>
+
+
+   
   )
 }
