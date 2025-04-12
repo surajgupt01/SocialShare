@@ -2,11 +2,24 @@ import { useMutation } from "@tanstack/react-query"
 import Logo from "./Logo"
 import{ Link, useNavigate }from "react-router"
 import axios from "axios"
+import {toast , ToastContainer} from 'react-toastify'
 
 
 export default function SignIn(){
 
   const navigate  = useNavigate();
+  
+  function IContainer(){
+    return(
+      <div>Invalid credentials</div>
+    )
+  }
+  function SContainer(){
+    return(
+      <div>Login Successfull</div>
+    )
+  }
+
 
 
 
@@ -32,11 +45,17 @@ export default function SignIn(){
    mutationFn : signed , onSuccess : (data)=>{
     if(data.status === 200){
     localStorage.setItem('token' , data?.data?.token)
-  
-    navigate('/dashboard')
+    toast.success(<SContainer/> , { onClose: ()=> navigate('/dashboard')})
+    
 
     }
-   }
+
+   },
+   onError : (err)=>{
+    console.log(err)
+    toast.error(<IContainer/>)
+
+  }
  })
 
   return (
@@ -81,6 +100,7 @@ export default function SignIn(){
             </div>
 
            
+            <ToastContainer autoClose={2000} draggable={false} theme="dark" toastClassName='toast' />
             
       
 
