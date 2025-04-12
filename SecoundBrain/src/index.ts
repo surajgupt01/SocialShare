@@ -115,7 +115,7 @@ app.get('/demo' , (req,res)=>{
 })
 
 
-app.post('/api/v1/signIn' , async(req : Request , res:Response):Promise<any>=>{
+app.post('/api/v1/signIn' , async(req : Request , res:Response):Promise<void>=>{
 
 
     try{
@@ -131,7 +131,8 @@ app.post('/api/v1/signIn' , async(req : Request , res:Response):Promise<any>=>{
   
       if(!user || null){
   
-        return res.status(401).json({mssg:"Invalid Credentials"})
+         res.status(401).json({mssg:"Invalid Credentials"})
+         return;
   
       }
       else{
@@ -144,21 +145,24 @@ app.post('/api/v1/signIn' , async(req : Request , res:Response):Promise<any>=>{
           //  console.log(hashedPassword)
            if(!success){
               console.log('incorrect password')
-            return  res.status(401).json({mssg:"Invalid Credentials"})
+              res.status(401).json({mssg:"Invalid Credentials"})
+              return;
   
            }
            else{
               console.log(success)
               let id = user._id
               let token = jwt.sign({id} , jwt_secret)
-             return res.json({token})
+              res.json({token})
+              return;
            }
       }
   
       }
       catch(e){
   
-         return res.status(401).json('Invalid credentials')
+          res.status(401).json('Invalid credentials')
+          return;
   
       }
   
