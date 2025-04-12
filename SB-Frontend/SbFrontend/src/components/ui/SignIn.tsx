@@ -43,6 +43,7 @@ export default function SignIn(){
 
  const SignIN = useMutation({
    mutationFn : signed , onSuccess : (data)=>{
+    console.log(data)
     if(data.status === 200){
     localStorage.setItem('token' , data?.data?.token)
     toast.success(<SContainer/> , { onClose: ()=> navigate('/dashboard')})
