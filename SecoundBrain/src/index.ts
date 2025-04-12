@@ -112,45 +112,60 @@ app.post('/api/v1/signup' , async(req , res)=>{
 app.get('/demo' , (req,res)=>{
     res.json({mssg:"demo working"})
 })
+
+
 app.post('/api/v1/signIn' , async(req,res)=>{
 
 
-    console.log(req.body)
-
-    let email = req.body.email;
-    let password = req.body.password;
-
-    let user =  await UserModel.findOne({email})
-
-    console.log(user);
-
-    if(!user){
-
-        res.json({mssg:"Invalid Credentials"})
-
-    }
-    else{
-        // const hashedPassword = await bcrypt.hash(password,10)
-
-        
-        
-         let success =  await  bcrypt.compare(password,user.password)
-        //  const hashedPassword = await bcrypt.hash(password, 10);
-        //  console.log(hashedPassword)
-         if(!success){
-            console.log("Not matched ",success)
-         }
-         else{
-            console.log(success)
-            let id = user._id
-            let token = jwt.sign({id} , jwt_secret)
-            res.json({token})
-         }
-    }
-
-
-
-})
+    try{
+          
+      console.log(req.body)
+  
+      let email = req.body.email;
+      let password = req.body.password;
+  
+      let user =  await UserModel.findOne({email})
+  
+      console.log(user);
+  
+      if(!user){
+  
+         res.status(401).json({mssg:"Invalid Credentials"})
+  
+      }
+      else{
+          // const hashedPassword = await bcrypt.hash(password,10)
+  
+          
+          
+           let success =  await  bcrypt.compare(password,user.password)
+          //  const hashedPassword = await bcrypt.hash(password, 10);
+          //  console.log(hashedPassword)
+           if(!success){
+              console.log('incorrect password')
+              res.status(401).json({mssg:"Invalid Credentials"})
+  
+           }
+           else{
+              console.log(success)
+              let id = user._id
+              let token = jwt.sign({id} , jwt_secret)
+              res.json({token})
+           }
+      }
+  
+      }
+      catch(e){
+  
+          res.status(401).json('Invalid credentials')
+  
+      }
+  
+  
+  
+  
+  })
+  
 
 app.post('/api/v1/content' , async(req,res)=>{
 
