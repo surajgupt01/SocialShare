@@ -128,7 +128,7 @@ app.post('/api/v1/signIn' , async(req,res)=>{
   
       console.log(user);
   
-      if(!user){
+      if(!user || null){
   
          res.status(401).json({mssg:"Invalid Credentials"})
   
