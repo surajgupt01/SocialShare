@@ -161,7 +161,7 @@ app.post('/api/v1/signIn' , async(req : Request , res:Response):Promise<void>=>{
       }
       catch(e){
   
-          res.status(401).json('Invalid credentials')
+          res.status(401).json({mssg : 'Invalid credentials---'})
           return;
   
       }
