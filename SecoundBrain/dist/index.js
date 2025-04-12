@@ -87,28 +87,40 @@ app.get('/demo', (req, res) => {
     res.json({ mssg: "demo working" });
 });
 app.post('/api/v1/signIn', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(req.body);
-    let email = req.body.email;
-    let password = req.body.password;
-    let user = yield db_1.UserModel.findOne({ email });
-    console.log(user);
-    if (!user) {
-        res.json({ mssg: "Invalid Credentials" });
-    }
-    else {
-        // const hashedPassword = await bcrypt.hash(password,10)
-        let success = yield bcrypt_1.default.compare(password, user.password);
-        //  const hashedPassword = await bcrypt.hash(password, 10);
-        //  console.log(hashedPassword)
-        if (!success) {
-            console.log("Not matched ", success);
+    try {
+        console.log('Request Body on Vercel:', req.body);
+        console.log('JWT Secret on Vercel:', process.env.JWT_SECRET);
+        let email = req.body.email;
+        let password = req.body.password;
+        console.log('Email:', email, 'Password:', password);
+        let user = yield db_1.UserModel.findOne({ email });
+        console.log('User found:', user);
+        if (!user) {
+            console.log('No user found - Sending 401');
+            res.status(401).json({ mssg: "Invalid Credentials no user" });
+            return;
         }
         else {
-            console.log(success);
-            let id = user._id;
-            let token = jsonwebtoken_1.default.sign({ id }, jwt_secret);
-            res.json({ token });
+            let success = yield bcrypt_1.default.compare(password, user.password);
+            console.log('Password comparison success:', success);
+            if (!success) {
+                console.log('Incorrect password - Sending 401');
+                res.status(401).json({ mssg: "Invalid Credentials wrong password" });
+                return;
+            }
+            else {
+                console.log('Login successful - Sending token');
+                let id = user._id;
+                let token = jsonwebtoken_1.default.sign({ id }, process.env.JWT_SECRET || 'your-secret-key'); // Ensure fallback
+                res.json({ token });
+                return;
+            }
         }
+    }
+    catch (e) {
+        console.error('Error during sign in on Vercel:', e);
+        res.status(500).json({ mssg: 'Internal server error during sign in' }); // Use 500 for unexpected errors
+        return;
     }
 }));
 app.post('/api/v1/content', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
