@@ -153,7 +153,7 @@ app.post('/api/v1/signIn' , async(req : Request , res:Response):Promise<void>=>{
               console.log(success)
               let id = user._id
               let token = jwt.sign({id} , jwt_secret)
-              res.json({'token':token})
+              res.json({token})
               return;
            }
       }
