@@ -129,9 +129,9 @@ app.post('/api/v1/signIn' , async(req : Request , res:Response):Promise<void>=>{
   
       console.log(user);
   
-      if(!user || null){
+      if(!user){
   
-         res.status(401).json({mssg:"Invalid Credentials"})
+         res.status(401).json({mssg:"Invalid Credentials no user"})
          return;
   
       }
@@ -139,13 +139,13 @@ app.post('/api/v1/signIn' , async(req : Request , res:Response):Promise<void>=>{
           // const hashedPassword = await bcrypt.hash(password,10)
   
           
-          
+         
            let success =  await  bcrypt.compare(password,user.password)
           //  const hashedPassword = await bcrypt.hash(password, 10);
           //  console.log(hashedPassword)
            if(!success){
               console.log('incorrect password')
-              res.status(401).json({mssg:"Invalid Credentials"})
+              res.status(401).json({mssg:"Invalid Credentials wrong password"})
               return;
   
            }
@@ -153,7 +153,7 @@ app.post('/api/v1/signIn' , async(req : Request , res:Response):Promise<void>=>{
               console.log(success)
               let id = user._id
               let token = jwt.sign({id} , jwt_secret)
-              res.json({token})
+              res.json({'token':token})
               return;
            }
       }
@@ -165,6 +165,8 @@ app.post('/api/v1/signIn' , async(req : Request , res:Response):Promise<void>=>{
           return;
   
       }
+
+ 
   
   
   
