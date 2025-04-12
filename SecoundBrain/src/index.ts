@@ -114,65 +114,49 @@ app.get('/demo' , (req,res)=>{
     res.json({mssg:"demo working"})
 })
 
-
 app.post('/api/v1/signIn' , async(req : Request , res:Response):Promise<void>=>{
-
-
     try{
-          
-      console.log(req.body)
-  
-      let email = req.body.email;
-      let password = req.body.password;
-  
-      let user =  await UserModel.findOne({email})
-  
-      console.log(user);
-  
-      if(!user){
-  
-         res.status(401).json({mssg:"Invalid Credentials no user"})
-         return;
-  
-      }
-      else{
-          // const hashedPassword = await bcrypt.hash(password,10)
-  
-          
-         
-           let success =  await  bcrypt.compare(password,user.password)
-          //  const hashedPassword = await bcrypt.hash(password, 10);
-          //  console.log(hashedPassword)
-           if(!success){
-              console.log('incorrect password')
-              res.status(401).json({mssg:"Invalid Credentials wrong password"})
-              return;
-  
-           }
-           else{
-              console.log(success)
-              let id = user._id
-              let token = jwt.sign({id} , jwt_secret)
-              res.json({token})
-              return;
-           }
-      }
-  
-      }
-      catch(e){
-  
-          res.status(401).json({mssg : 'Invalid credentials---'})
-          return;
-  
-      }
+        console.log('Request Body on Vercel:', req.body);
+        console.log('JWT Secret on Vercel:', process.env.JWT_SECRET);
 
- 
-  
-  
-  
-  
-  })
-  
+        let email = req.body.email;
+        let password = req.body.password;
+
+        console.log('Email:', email, 'Password:', password);
+
+        let user = await UserModel.findOne({ email });
+
+        console.log('User found:', user);
+
+        if(!user){
+            console.log('No user found - Sending 401');
+            res.status(401).json({mssg:"Invalid Credentials no user"});
+            return;
+        }
+        else{
+            let success = await bcrypt.compare(password,user.password);
+            console.log('Password comparison success:', success);
+
+            if(!success){
+                console.log('Incorrect password - Sending 401');
+                res.status(401).json({mssg:"Invalid Credentials wrong password"});
+                return;
+            }
+            else{
+                console.log('Login successful - Sending token');
+                let id = user._id;
+                let token = jwt.sign({id} , process.env.JWT_SECRET || 'your-secret-key'); // Ensure fallback
+                res.json({token});
+                return;
+            }
+        }
+    }
+    catch(e){
+        console.error('Error during sign in on Vercel:', e);
+        res.status(500).json({mssg : 'Internal server error during sign in'}); // Use 500 for unexpected errors
+        return;
+    }
+});
 
 app.post('/api/v1/content' , async(req,res)=>{
 
