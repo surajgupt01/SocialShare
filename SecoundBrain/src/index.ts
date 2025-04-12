@@ -10,6 +10,7 @@ import  bcrypt, { hash } from "bcrypt"
 import random from './utlis';
 import cors from "cors";
 import { json } from 'body-parser';
+import { Request , Response } from 'express';
 import dotenv from 'dotenv'
 
 dotenv.config()
@@ -114,7 +115,7 @@ app.get('/demo' , (req,res)=>{
 })
 
 
-app.post('/api/v1/signIn' , async(req,res)=>{
+app.post('/api/v1/signIn' , async(req : Request , res:Response):Promise<any>=>{
 
 
     try{
@@ -130,7 +131,7 @@ app.post('/api/v1/signIn' , async(req,res)=>{
   
       if(!user || null){
   
-         res.status(401).json({mssg:"Invalid Credentials"})
+        return res.status(401).json({mssg:"Invalid Credentials"})
   
       }
       else{
@@ -143,21 +144,21 @@ app.post('/api/v1/signIn' , async(req,res)=>{
           //  console.log(hashedPassword)
            if(!success){
               console.log('incorrect password')
-              res.status(401).json({mssg:"Invalid Credentials"})
+            return  res.status(401).json({mssg:"Invalid Credentials"})
   
            }
            else{
               console.log(success)
               let id = user._id
               let token = jwt.sign({id} , jwt_secret)
-              res.json({token})
+             return res.json({token})
            }
       }
   
       }
       catch(e){
   
-          res.status(401).json('Invalid credentials')
+         return res.status(401).json('Invalid credentials')
   
       }
   
