@@ -198,6 +198,34 @@ app.post('/api/v1/share', (req, res) => __awaiter(void 0, void 0, void 0, functi
         res.json({ e });
     }
 }));
+app.delete('/api/v1/content', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let contentID = req.body.id;
+        let token = req.header('Authorization');
+        if (token) {
+            let verification = jsonwebtoken_1.default.verify(token, jwt_secret);
+            if (verification) {
+                let task = yield db_1.ContentModel.findOneAndDelete({ _id: contentID });
+                console.log("verify :: ", verification);
+                if (task) {
+                    res.json({ mssg: "content deleted" });
+                    return;
+                }
+                else {
+                    res.status(400).json({ mssg: 'no content found !' });
+                    return;
+                }
+            }
+        }
+        else {
+            res.status(401).json({ mssg: 'error in authentication' });
+            return;
+        }
+    }
+    catch (e) {
+        res.status(403).json({ mssg: 'invalid token' });
+    }
+}));
 app.get('/api/v1/:sharelink', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let hash = req.params.sharelink;
     console.log(hash);

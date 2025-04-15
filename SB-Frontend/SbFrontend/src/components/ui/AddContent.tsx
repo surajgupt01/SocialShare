@@ -1,7 +1,7 @@
 import CrossaIcon from "./CrossIcon";
-import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import { useNavigate } from "react-router";
+import { useQueryClient, useMutation } from "@tanstack/react-query";
+import { useState } from "react";
 
 interface AddContentProps {
     state: boolean;
@@ -10,7 +10,9 @@ interface AddContentProps {
 
 
 export default function AddContent({state , setState} : AddContentProps){
-const navigate = useNavigate()
+
+let queryClient = useQueryClient()
+const [type , setType] = useState('')
 
 async function addData(formData:FormData){
 
@@ -18,7 +20,8 @@ async function addData(formData:FormData){
     link :  formData.get('link'),
     tags :  formData.get('tag'),
     title :  formData.get('title'),
-    type :  formData.get('type'),
+    type :    type,
+    
 
 
   },
@@ -37,7 +40,8 @@ async function addData(formData:FormData){
 }
 const addContent = useMutation({
   mutationFn: addData , onSuccess : ()=>{
-    navigate('/dashboard')
+    queryClient.invalidateQueries({queryKey:['contents']})
+
   
 
   }
@@ -68,10 +72,18 @@ const addContent = useMutation({
           placeholder="Enter title"
          name="title" className="md:w-[250px] sm:w-[200px] w-[150px] h-12 p-2 rounded-lg border-gray-300 border mb-5"
         />
-        <input
+        {/* <input
           placeholder="Enter type of content"
           name="type" className="md:w-[250px] sm:w-[200px] w-[150px] h-12 p-2 rounded-lg border-gray-300 border mb-5"
-        />
+        /> */}
+        <label htmlFor="type"></label>
+        <select id="type"  value={type}
+          onChange={(e) => setType(e.target.value)} className=" relative border-1 border-gray-300 h-12 p-2 rounded-lg focus:outline-gray-200 md:w-[200px] sm:w-[200px] w-[130px] appearance-none">
+          <option className="text-sm" value=''>--choose the type of content--</option>
+          <option value='youtube' className="text-sm">Youtube</option>
+          <option value='twitter' className="text-sm">Twitter</option>
+          <option value='docs' className="text-sm">Docs</option>
+        </select>
       </div>
       <input
         placeholder="Enter tags ##"

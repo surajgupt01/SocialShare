@@ -1,20 +1,90 @@
 interface CardProps{
   link : string,
-  type : "youtube"|"twitter",
+  type : "youtube"|"twitter"|"docs",
   title : string
-  tags : []
+  tags : [],
+  _id  :  String  
+
 }
 import Share from "./Share"
 import Bin from "./Bin"
-export default function Card({type, link, title } : CardProps){
+import {toast } from 'react-toastify'
+import axios from "axios"
+import { useMutation , useQueryClient } from "@tanstack/react-query"
+
+export default function Card({type, link, title , _id } : CardProps){
+  
+  
+  const colorMap : any = {
+    YOUTUBE: 'text-red-500',
+    TWITTER: 'text-sky-500',
+    DOCS: 'text-gray-600',
+  };
+
+  const colorClass = colorMap[type.toUpperCase()] ;
+  
+  let queryClient = useQueryClient()
+   async function deleteContent(){
+
+        let response = axios.delete(`https://social-share-dwj6.vercel.app/api/v1/content` ,
+    
+          {
+            headers : {
+              'Authorization' : localStorage.getItem('token')
+            },
+
+            data : {
+
+              id : _id
+
+            }
+            
+        })
+
+        return response
+
+
+   }
+    
+   const ContentDel = useMutation({
+    mutationFn : deleteContent , onSuccess : (data)=>{
+      console.log("del resp",data)
+      toast.success(data.data.mssg)
+      setTimeout(()=>{
+        queryClient.invalidateQueries({queryKey : ['contents']})
+       
+      },2000)
+    }
+   }, 
+  
+  )
+
+  function deleteHandler(){
+      ContentDel.mutate()
+  }
+
+const today = new Date();
+
+const day = String(today.getDate()).padStart(2, '0');
+const month = String(today.getMonth() + 1).padStart(2, '0'); 
+const year = today.getFullYear();
+
+const formattedDate = `${day}/${month}/${year}`;
+
     return(
   
-      <div className="border-1 rounded-md border-gray-300 md:p-4 p-2 shadow-md overflow-y-auto no-scrollbar col-span-1">
+      <div className="border-1 rounded-md border-gray-800 md:p-4 p-2 shadow-md overflow-y-auto no-scrollbar col-span-1">
   
-      <div className="md:text-2xl text-lg font-semibold flex justify-between ">Project Ideas
+       <div className={`md:text-xl text-lg font-semibold flex justify-between ${colorClass} `} >{type.toUpperCase()}
+
        <div className=" flex p-2 text-gray-500 cursor-pointer justify-between">
-       <Share/>
-       <Bin/>
+       <button className="mr-3 cursor-pointer" onClick={()=>{
+         window.navigator.clipboard.writeText(link)
+         toast.success('link copied')
+       }}><Share/></button>
+        <button className="cursor-pointer" onClick={()=>{
+          deleteHandler()
+        }}><Bin/></button>
         </div> 
       </div>
       <div className="md:text-4xl text-2xl font-semibold md:mt-5 mt-2">{title}</div>
@@ -25,6 +95,8 @@ export default function Card({type, link, title } : CardProps){
      {type==="twitter" && <blockquote className="twitter-tweet w-full max-h-200 overflow-hidden text-ellipsis rounded-md mt-5 border border-gray-300 cursor-pointer">
     <a href={link.replace("x.com", "twitter.com")}></a>
   </blockquote>}
+  {type==='docs' && <iframe src={link.replace('view' , 'preview')} className="w-full h-50 rounded-md mt-5 border border-gray-300 cursor-pointer" ></iframe>}
+
   
   
   
@@ -41,7 +113,7 @@ export default function Card({type, link, title } : CardProps){
       
       </div>
   
-      <div className="text-gray-400 text-sm mt-2"> Added on - 14/04/2025</div>
+      <div className="text-gray-400 text-sm mt-2"> Added on - {formattedDate}</div>
   
     </div>
     )
