@@ -68,7 +68,7 @@ export default function Card({type, link, title , _id , date } : CardProps){
 
     return(
   
-      <div className="border-1 rounded-md border-gray-800 md:p-4 p-2 shadow-md overflow-y-auto no-scrollbar col-span-1 max-h-100">
+      <div className="border-1 rounded-md border-gray-800 md:p-2 p-2 shadow-md overflow-y-auto no-scrollbar col-span-1 max-h-100">
   
        <div className={`md:text-xl text-lg font-semibold flex justify-between ${colorClass} `} >{type.toUpperCase()}
 
@@ -82,7 +82,7 @@ export default function Card({type, link, title , _id , date } : CardProps){
         }}><Bin/></button>
         </div> 
       </div>
-      <div className="md:text-4xl text-2xl font-semibold md:mt-5 mt-2 text-gray-500">{title}</div>
+      <div className="md:text-2xl text-2xl font-semibold md:mt-5 mt-2 text-gray-500">{title}</div>
      
   
       
@@ -95,7 +95,7 @@ export default function Card({type, link, title , _id , date } : CardProps){
   
   
   
-      <div className="flex md:mt-5 mt-2 ">
+      <div className="flex md:mt-2 mt-2 ">
 
 
       <div className="mr-2 bg-blue-200 rounded-lg p-1">#Productivity</div>
