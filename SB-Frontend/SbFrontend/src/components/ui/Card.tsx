@@ -87,7 +87,7 @@ const formattedDate = `${day}/${month}/${year}`;
         }}><Bin/></button>
         </div> 
       </div>
-      <div className="md:text-4xl text-2xl font-semibold md:mt-5 mt-2">{title}</div>
+      <div className="md:text-4xl text-2xl font-semibold md:mt-5 mt-2 text-gray-500">{title}</div>
      
   
       
