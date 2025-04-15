@@ -73,7 +73,7 @@ const formattedDate = `${day}/${month}/${year}`;
 
     return(
   
-      <div className="border-1 rounded-md border-gray-800 md:p-4 p-2 shadow-md overflow-y-auto no-scrollbar col-span-1">
+      <div className="border-1 rounded-md border-gray-800 md:p-4 p-2 shadow-md overflow-y-auto no-scrollbar col-span-1 max-h-100">
   
        <div className={`md:text-xl text-lg font-semibold flex justify-between ${colorClass} `} >{type.toUpperCase()}
 
