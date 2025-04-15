@@ -25,7 +25,7 @@ export default function ButtonComp({addContent , SharingHandler}:any){
     
     return(
           <div className="flex w-full items-start h-25 justify-between col-span-full">
-          <div className="text-4xl font-bold mt-10 ml-2">All Notes</div>
+          <div className="text-4xl font-bold mt-10 ml-2 text-gray-500">All Notes</div>
           <div className=" hidden sm:flex  ">
 
             

@@ -11,6 +11,8 @@ import Setting from "./Setting";
 import Share from "./Share";
 import Plusicon from "./Plusicon";
 import { useMutation } from "@tanstack/react-query";
+import { ToastContainer } from "react-toastify";
+ 
 
 
 export default function DashBoard() {
@@ -176,7 +178,8 @@ function shareContent() {
         <Setting/>
       </div>
     </div>}
-
+    <ToastContainer autoClose={2000} draggable={false} theme="dark" toastClassName='toast' />
+    
     
 </div>
 
