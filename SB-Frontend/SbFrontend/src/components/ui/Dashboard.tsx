@@ -125,7 +125,7 @@ function shareContent() {
 
        
   {/* Main Content Section */}
-  <div className="flex-1 md:p-10 p-2 transition-all ml-0 md:ml-80 bg-gray-200   w-full overflow-y-auto "  onClick={()=>{
+  <div className="flex-1 md:p-10 p-2 transition-all ml-0 md:ml-80 bg-zinc-900   w-full overflow-y-auto "  onClick={()=>{
     if(window.innerWidth < 600 && menu){
       setMenu(c=>!c)}
     }
