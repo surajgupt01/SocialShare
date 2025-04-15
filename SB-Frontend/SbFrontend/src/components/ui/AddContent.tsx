@@ -14,6 +14,14 @@ export default function AddContent({state , setState} : AddContentProps){
 let queryClient = useQueryClient()
 const [type , setType] = useState('')
 
+const today = new Date();
+
+const day = String(today.getDate()).padStart(2, '0');
+const month = String(today.getMonth() + 1).padStart(2, '0'); 
+const year = today.getFullYear();
+
+const formattedDate = `${day}/${month}/${year}`;
+
 async function addData(formData:FormData){
 
   const response = await axios.post('https://social-share-dwj6.vercel.app/api/v1/content',{
@@ -21,6 +29,7 @@ async function addData(formData:FormData){
     tags :  formData.get('tag'),
     title :  formData.get('title'),
     type :    type,
+    date :   formattedDate
     
 
 
