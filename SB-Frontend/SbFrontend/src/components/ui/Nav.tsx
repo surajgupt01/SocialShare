@@ -51,7 +51,7 @@ export  function Nav({menu  , setMenu ,setContentType}:any){
       <div className="font-semibold mb-5  hover:bg-gray-500 hover:text-gray-100 w-full h-10 p-2 cursor-pointer rounded-md flex" onClick={handleClick}><Links></Links> Links</div>
       <div className="font-semibold mb-5 hover:bg-gray-500 hover:fill-gray-100 hover:text-gray-100 w-full h-10 p-2 cursor-pointer rounded-md flex" onClick={handleClick}><Twitter></Twitter> Twitter</div>
       <div className="font-semibold mb-5  hover:bg-gray-500 hover:text-gray-100 w-full h-10 p-2 cursor-pointer rounded-md flex" onClick={handleClick}><Video ></Video> Youtube</div>
-      <div className="font-semibold mb-5  hover:bg-gray-500 hover:text-gray-100 w-full h-10 p-2 cursor-pointer rounded-md flex" onClick={handleClick}> <Documents></Documents> Documents</div>
+      <div className="font-semibold mb-5  hover:bg-gray-500 hover:text-gray-100 w-full h-10 p-2 cursor-pointer rounded-md flex" onClick={handleClick}> <Documents></Documents> Docs</div>
       <div className="font-semibold mb-5  hover:bg-gray-500 hover:text-gray-100 w-full h-10 p-2 cursor-pointer rounded-md flex" onClick={handleClick}><Tags></Tags> Tags</div>
 
          
