@@ -91,11 +91,11 @@ const formattedDate = `${day}/${month}/${year}`;
      
   
       
-     {  type==="youtube" && <iframe src = {link.replace("watch" , "embed").replace("?v=" , "/")} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen={true} className="w-full md:h-50 h-35 rounded-md mt-5 border-1 border-gray-300 cursor-pointer"></iframe>}
-     {type==="twitter" && <blockquote className="twitter-tweet w-full max-h-200 overflow-hidden text-ellipsis rounded-md mt-5 border border-gray-300 cursor-pointer">
+     {  type==="youtube" && <iframe src = {link.replace("watch" , "embed").replace("?v=" , "/")} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen={true} className="w-full md:h-50 h-35 rounded-md mt-5 border-1 border-gray-500 cursor-pointer"></iframe>}
+     {type==="twitter" && <blockquote className="twitter-tweet w-full max-h-200 overflow-hidden text-ellipsis rounded-md mt-5 border border-gray-500 cursor-pointer">
     <a href={link.replace("x.com", "twitter.com")}></a>
   </blockquote>}
-  {type==='docs' && <iframe src={link.replace('view' , 'preview')} className="w-full h-50 rounded-md mt-5 border border-gray-300 cursor-pointer" ></iframe>}
+  {type==='docs' && <iframe src={link.replace('view' , 'preview')} className="w-full h-50 rounded-md mt-5 border border-gray-500 cursor-pointer" ></iframe>}
 
   
   
