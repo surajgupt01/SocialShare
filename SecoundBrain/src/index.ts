@@ -292,6 +292,50 @@ app.post('/api/v1/share' , async(req,res)=>{
 
 })
 
+app.delete('/api/v1/content' , async(req,res)=>{
+    
+    try{
+
+    
+     let contentID = req.body.id;
+     let token = req.header('Authorization')
+     if(token){
+
+        let verification = jwt.verify(token , jwt_secret)
+        if(verification){
+
+            let task = await ContentModel.findOneAndDelete({_id : contentID})
+            console.log("verify :: ",verification)
+            if(task){
+               res.json({mssg : "content deleted"})
+               return
+            }
+            else{
+                res.status(400).json({mssg:'no content found !'})
+                return
+            }
+       
+
+        }
+      
+     }
+     else{
+        res.status(401).json({mssg : 'error in authentication'})
+        return
+     }
+    
+
+    }
+    catch(e){
+
+        res.status(403).json({mssg : 'invalid token'})
+
+    }
+
+
+})
+
+
 
 
 
