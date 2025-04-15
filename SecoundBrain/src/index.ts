@@ -179,7 +179,8 @@ app.post('/api/v1/content' , async(req,res)=>{
             type,
             title :  req.body.title,
             userID :  new mongoose.Types.ObjectId(UID),
-            tags : []
+            tags : [],
+            date : req.body.date
 
             })
 

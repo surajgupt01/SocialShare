@@ -40,7 +40,8 @@ const content = new mongoose.Schema({
     title : String,
     link  : String,
     tags  : [{type : mongoose.Types.ObjectId , ref : 'Tag'}],
-    userID : {type : mongoose.Types.ObjectId , ref : 'user' , required : true}
+    userID : {type : mongoose.Types.ObjectId , ref : 'user' , required : true},
+    date : String
 
 })
 

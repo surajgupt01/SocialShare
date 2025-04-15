@@ -138,7 +138,8 @@ app.post('/api/v1/content', (req, res) => __awaiter(void 0, void 0, void 0, func
                     type,
                     title: req.body.title,
                     userID: new mongoose_1.default.Types.ObjectId(UID),
-                    tags: []
+                    tags: [],
+                    date: req.body.date
                 });
                 res.json({ mssg: "content added" });
             }
