@@ -3,7 +3,8 @@ interface CardProps{
   type : "youtube"|"twitter"|"docs",
   title : string
   tags : [],
-  _id  :  String  
+  _id  :  String,
+  date : string  
 
 }
 import Share from "./Share"
@@ -12,7 +13,7 @@ import {toast } from 'react-toastify'
 import axios from "axios"
 import { useMutation , useQueryClient } from "@tanstack/react-query"
 
-export default function Card({type, link, title , _id } : CardProps){
+export default function Card({type, link, title , _id , date } : CardProps){
   
   
   const colorMap : any = {
@@ -63,13 +64,7 @@ export default function Card({type, link, title , _id } : CardProps){
       ContentDel.mutate()
   }
 
-const today = new Date();
 
-const day = String(today.getDate()).padStart(2, '0');
-const month = String(today.getMonth() + 1).padStart(2, '0'); 
-const year = today.getFullYear();
-
-const formattedDate = `${day}/${month}/${year}`;
 
     return(
   
@@ -113,7 +108,7 @@ const formattedDate = `${day}/${month}/${year}`;
       
       </div>
   
-      <div className="text-gray-400 text-sm mt-2"> Added on - {formattedDate}</div>
+      <div className="text-gray-400 text-sm mt-2"> Added on - {date}</div>
   
     </div>
     )
