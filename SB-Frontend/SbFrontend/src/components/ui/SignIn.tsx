@@ -60,7 +60,7 @@ export default function SignIn(){
  })
 
   return (
-    <div className="bg-neutral-900 absolute w-full h-full">
+    <div className="bg-neutral-50 absolute w-full h-full">
             
             <div className="font-bold text-3xl m-10  p-2 text-blue-500 cursor-pointer hover:text-blue-600   flex items-center">
                <Link to={'/'}>
@@ -72,7 +72,7 @@ export default function SignIn(){
             
             <div className="flex items-center justify-center h-120">
             <form action={SignIN.mutate}>
-            <div className="border-1 border-gray-800 text-white h-90 md:w-95 sm:w-100 w:90 rounded-lg shadow-lg shadow-gray-900">
+            <div className="border-1 border-gray-200 text-black h-90 md:w-95 sm:w-100 w:90 rounded-lg shadow-lg shadow-blue-200">
            
                <div className="font-semibold text-2xl w-full p-2 flex justify-center">Sign In</div>
                <div className=" text-md-full p-2 flex justify-center">Unlock Knowledge. Save, Share and Inspire!</div>
@@ -85,7 +85,7 @@ export default function SignIn(){
                     
                     <input name="email" type="email" className="w-70 h-10 rounded-md border-1 border-gray-300 mb-5 p-5" placeholder="Email"></input>
                     <input name="password" type="password" className="w-70 h-10 rounded-md border-1 border-gray-300 p-5 mb-5" placeholder="Password"></input>
-                    <button type="submit" className="w-70 h-10 border-1 border-blue-500 bg-blue-500 hover:bg-blue-600 rounded-lg text-white cursor-pointer ">Submit</button>
+                    <button type="submit" className="w-70 h-10 border-1 border-black bg-black hover:bg-gray-700 rounded-lg text-white cursor-pointer ">Submit</button>
                     
                   </div>
                   <p className="text-center mt-2 mb-2 p-2">Don't have a account <Link to={'/signUp'}> <span className="cursor-pointer text-blue-400 hover:text-blue-600">SignUp</span> </Link></p>
