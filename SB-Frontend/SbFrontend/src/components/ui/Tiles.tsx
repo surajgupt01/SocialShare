@@ -89,7 +89,7 @@ function Tiles() {
                 Cross Platform Sync <br></br> Real Time Collaboration
               </p>
               <img
-                src="/Screenshot-2025-04-19-230957.png"
+                src="/static/Screenshot-2025-04-19-230957.png"
                 className="absolute rounded-lg ml-20 mt-10 h-60 bottom-5 shadow-xl"
               ></img>
             </div>
@@ -105,7 +105,7 @@ function Tiles() {
               Share embeds with your <span className="text-3xl">Friends</span>
             </p>
             <img
-              src="/istockphoto-1355902675-612x612.jpg"
+              src="/static/istockphoto-1355902675-612x612.jpg"
               className="w-70 h-30 rounded-lg "
             ></img>
           </motion.div>
@@ -122,7 +122,7 @@ function Tiles() {
             <p className="text-xl ml-22">Design</p>
 
             <img
-              src="/User-friendly-and-Responisve-Design.png"
+              src="/static/User-friendly-and-Responisve-Design.png"
               className="absolute rounded-lg mix-blend-multiply ml-15"
             ></img>
           </motion.div>
