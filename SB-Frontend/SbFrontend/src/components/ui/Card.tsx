@@ -16,13 +16,8 @@ import { useMutation , useQueryClient } from "@tanstack/react-query"
 export default function Card({type, link, title , _id , date } : CardProps){
   
   
-  const colorMap : any = {
-    YOUTUBE: 'text-red-500',
-    TWITTER: 'text-sky-500',
-    DOCS: 'text-gray-600',
-  };
 
-  const colorClass = colorMap[type.toUpperCase()] ;
+
   
   let queryClient = useQueryClient()
    async function deleteContent(){
