@@ -18,7 +18,7 @@ import Twitter from "./twitter"
 import { useState } from "react"
 import Drive from "./drive"
 
-export default function Card({type, link, title , _id , date } : CardProps){
+export default function Card({type, link, title , _id  } : CardProps){
   
   const [edit , setEdit] = useState(false)
 
