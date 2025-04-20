@@ -107,7 +107,7 @@ export default function Card({type, link, title , _id , date } : CardProps){
             {type==='docs' && <iframe src={link.replace('view' , 'preview')} className="w-full bottom-0 rounded-b-xl h-52 border border-gray-300 cursor-pointer absolute" ></iframe>}
       
   
-       <div className="text-gray-400 text-sm mt-2"> Added on - {date}</div>
+       {/* <div className="text-gray-400 text-sm mt-2"> Added on - {date}</div> */}
   
       </div>
     )
