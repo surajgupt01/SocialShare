@@ -9,8 +9,8 @@ import Lock from "./lock";
 function Tiles() {
   return (
     <>
-      <div className="sm:flex flex-row justify-center items-center h-full  gap-2 " id="explore">
-        <div className="flex flex-col gap-2 text-shadow-md">
+      <div className=" sm:flex sm:flex-row flex-col justify-center items-center p-4  gap-2  " id="explore">
+        <div className="flex md:flex-col flex-row justify-center items-center  gap-2 text-shadow-md  ">
         <motion.div
               initial={{ y: -90, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -25,14 +25,14 @@ function Tiles() {
               }}
               
             >
-          <div className="border-1 border-gray-100 w-60 h-40 rounded-lg bg-gray-100 flex flex-col items-center justify-center cursor-pointer shadow-sm shadow-gray-300">
+          <div className="border-1 border-gray-100 sm:w-60 w-50 sm:h-40 h-30 rounded-lg bg-gray-100 flex flex-col items-center justify-center cursor-pointer shadow-sm shadow-gray-300">
        
               <p className="font-semibold text-2xl ">Seamless</p>
               <p className="font-semibold text-4xl">Integration</p>
           </div>
           </motion.div>
 
-          <motion.div className="border border-gray-100 w-60 h-80 rounded-lg bg-gray-100 flex flex-col gap-4 items-center justify-center shadow-sm shadow-gray-300">
+          <motion.div className="border border-gray-100 sm:w-60 w-50 sm:h-80 h-65 rounded-lg bg-gray-100 flex flex-col gap-4 items-center justify-center shadow-sm shadow-gray-300">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -73,7 +73,7 @@ function Tiles() {
           </motion.div>
         </div>
 
-        <div className="flex flex-col gap-2 text-shadow-md">
+        <div className="flex flex-col gap-2 text-shadow-md justify-center items-center">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -84,7 +84,7 @@ function Tiles() {
               
             }}
           >
-            <div className="border-1 border-gray-100 w-120 h-90 rounded-lg bg-gray-300 relative overflow-hidden shadow-gray-300 shadow-sm">
+            <div className="border-1 border-gray-100 md:w-120 w-100 h-90 md:mt-0 mt-2 rounded-lg bg-gray-300 relative overflow-hidden shadow-gray-300 shadow-sm">
               <p className="text-2xl font-semibold m-4">
                 Cross Platform Sync <br></br> Real Time Collaboration
               </p>
@@ -96,7 +96,7 @@ function Tiles() {
           </motion.div>
 
           <motion.div
-            className="border-1 border-gray-100 w-110 h-30 rounded-lg bg-gray-100 font-semibold text-lg  flex items-center relative shadow-sm shadow-gray-300"
+            className="border-1 border-gray-100 md:w-110 w-100 h-30 rounded-lg bg-gray-100 font-semibold text-lg  flex items-center relative shadow-sm shadow-gray-300"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 3 }}
@@ -110,7 +110,7 @@ function Tiles() {
             ></img>
           </motion.div>
         </div>
-        <div className="flex flex-col gap-2 text-shadow-md relative">
+        <div className="flex md:flex-col flex-row md:mt-0 mt-2  md:gap-2 gap-4 text-shadow-md relative justify-center items-center">
           <motion.div
             className="relative border-1 border-gray-100 w-50 h-70 rounded-lg bg-gray-100 font-semibold text-2xl overflow-hidden shadow-sm shadow-gray-300"
             initial={{ opacity: 0, scale: 0.9, x: -20 }}

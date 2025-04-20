@@ -70,9 +70,9 @@ export default  function Home(){
 
          <Tiles/>
 
-        <div className=" border-1 border-gray-300 sm:h-100 h-full text-xl text-gray-500 p-15 grid sm:grid-cols-5 grid-cols-2 justify-items-start ">
+        <div className=" border-1 border-gray-300 sm:h-100 h-full text-md text-gray-500 p-10 grid sm:grid-cols-5 grid-cols-2 justify-center mt-10 ">
 
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-4">
            <span className="font-semibold text-blue-500">PRODUCT</span> 
 
            <p>Integrations</p> 
