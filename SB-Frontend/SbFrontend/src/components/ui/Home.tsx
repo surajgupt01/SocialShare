@@ -43,10 +43,10 @@ export default  function Home(){
       
          <div className=" flex flex-col  items-center p-10  rounded-t-lg  md:w-4xl sm:w-xl w-xl ">
 
-<div className="font-bold sm:text-6xl text-5xl md:text-6xl  flex  justify-center  text-blue-500 w-full  ">
+<div className="font-bold sm:text-6xl text-6xl md:text-6xl  flex  justify-center  text-blue-500 w-full  ">
    Social <span className="ml-2 md:ml-5 text-blue-600">Share</span></div>
    
-   <p className="font-semibold text-md mt-8 text-center text-gray-900 sm:text-md text-sm md:text-md">"Found something interesting?"
+   <p className="font-semibold text-md mt-8 text-center text-gray-900 sm:text-md text-md md:text-md">"Found something interesting?"
        <br></br>
      Don't let valuable content get lost. Save it here — videos, articles, or any content that inspires you.
      Share your curated content with anyone, anywhere, anytime.
@@ -112,7 +112,7 @@ export default  function Home(){
 
           </div>
 
-          <div className="flex flex-col gap-2 ">
+          <div className="flex flex-col gap-2 sm:col-span-1 col-span-2 ">
              <p className="font-semibold">Read how a second brain makes life easier</p>
              <input type="text" placeholder="Your email address" className="border-1 border-gray-400 rounded-lg p-2" />
              <button className="bg-blue-500 text-white font-semibold p-2 rounded-lg cursor-pointer text-center">Get updates</button>

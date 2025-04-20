@@ -9,7 +9,7 @@ import Lock from "./lock";
 function Tiles() {
   return (
     <>
-      <div className=" sm:flex sm:flex-row flex-col justify-center items-center p-4  gap-2  " id="explore">
+      <div className=" sm:flex sm:flex-row flex-col justify-center items-center p-4  gap-2 md:scale-100 scale-95  " id="explore">
         <div className="flex md:flex-col flex-row justify-center items-center  gap-2 text-shadow-md  ">
         <motion.div
               initial={{ y: -90, opacity: 0 }}
@@ -84,7 +84,7 @@ function Tiles() {
               
             }}
           >
-            <div className="border-1 border-gray-100 md:w-120 w-100 h-90 md:mt-0 mt-2 rounded-lg bg-gray-300 relative overflow-hidden shadow-gray-300 shadow-sm">
+            <div className="border-1 border-gray-100 md:w-120 w-100 h-90 md:mt-0 mt-2 rounded-lg bg-gray-300 relative overflow-hidden shadow-gray-300 shadow-sm ">
               <p className="text-2xl font-semibold m-4">
                 Cross Platform Sync <br></br> Real Time Collaboration
               </p>
