@@ -132,11 +132,12 @@ function shareContent() {
       setMenu(c=>!c)}
     }
     }>
-    
-    <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-5 gap-2">
-    <MenuButton menu={menu} setMenu={setMenu}> </MenuButton>    
+<MenuButton menu={menu} setMenu={setMenu}> </MenuButton>    
 
-    <ButtonComp addContent={addContent} SharingHandler={SharingHandler} />
+<ButtonComp addContent={addContent} SharingHandler={SharingHandler} />
+
+    
+    <div className="sm:columns-3 items-center gap-5 mt-10 ml-10">
 
       {data &&
         (contentType.toLowerCase() !== "links"
